@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/RigidBody.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=10]
+friction = 0.55
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="CubeMesh" id=8]
+
+[node name="crate" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82503, -14.9798 )
+physics_material_override = SubResource( 10 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 8 )
