@@ -7,15 +7,23 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+world = NodePath("ViewportContainer/full_view/World")
+full_view = NodePath("ViewportContainer/full_view")
+left_view = NodePath("split_view/ViewportContainer/left_view")
+right_view = NodePath("split_view/ViewportContainer2/right_view")
+split = NodePath("split_view")
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 margin_right = 320.0
 margin_bottom = 480.0
+rect_clip_content = true
 
 [node name="full_view" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 640, 480 )
 handle_input_locally = false
+use_32_bpc_depth = true
 render_target_update_mode = 3
+shadow_atlas_size = 1024
 
 [node name="World" parent="ViewportContainer/full_view" instance=ExtResource( 1 )]
 
@@ -27,6 +35,7 @@ margin_bottom = 40.0
 [node name="ViewportContainer" type="ViewportContainer" parent="split_view"]
 margin_right = 320.0
 margin_bottom = 480.0
+rect_clip_content = true
 
 [node name="left_view" type="Viewport" parent="split_view/ViewportContainer"]
 size = Vector2( 320, 480 )
@@ -37,6 +46,7 @@ render_target_update_mode = 0
 margin_left = 324.0
 margin_right = 644.0
 margin_bottom = 480.0
+rect_clip_content = true
 
 [node name="right_view" type="Viewport" parent="split_view/ViewportContainer2"]
 size = Vector2( 320, 480 )

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/models/7frj09nru4zu.png" type="Texture" id=1]
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 300, 1, 300 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.1, 0.1, 0.1 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 150.321, 0.626931, 152.161 )
+
+[node name="floor" type="StaticBody"]
+transform = Transform( 0.120741, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.00175, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24011, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20944, 0 )
+shape = SubResource( 4 )
